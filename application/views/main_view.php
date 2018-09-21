@@ -14,8 +14,8 @@
                         Imagen de prueba 01
                     </div>
                 </div>  
-                <!-- <button class="w3-button w3-display-left w3-white" onclick="plusDivs(-1)">&#10094;</button>
-                <button class="w3-button w3-display-right w3-white" onclick="plusDivs(1)">&#10095;</button> -->
+                <button class="w3-button w3-display-left w3-white" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="w3-button w3-display-right w3-white" onclick="plusDivs(1)">&#10095;</button>
             </div>
         </div>
     </div>
