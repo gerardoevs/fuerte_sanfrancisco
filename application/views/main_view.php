@@ -21,29 +21,37 @@
     </div>
     <div class="row">
         <div class="col-md-8">
+
+            
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                      <div class="card-body">
-                        <h4 class="card-title">Noticia 1</h4>
-                        <img class="card-img-top" src="<?=base_url()?>assets/img/default-img.svg" alt="Card image">
-                        <p class="card-text">Some example text. Some example text.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                      </div>
+                <?php
+                    foreach ($noticias as $noticia) {
+                    ?>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"><?php echo $noticia->titulo_noticia?></h4>
+                                <?php 
+                                    if($noticia->nombre_imagen == "" ||  is_null($noticia->nombre_imagen)){
+                                        ?>
+                                        <img class="card-img-top img-noticia" src="<?=base_url()?>assets/img/default-img.svg" alt="Imagen de noticia"><hr>
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <img class="card-img-top img-noticia" src="<?=base_url('imgUploads/portadas/').$noticia->nombre_imagen?>" alt="Imagen de noticia"><hr>
+                                        <?php
+                                    }
+                                ?>
+                                <p class="card-text"><?php echo $noticia->descripcion_corta?></p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                      <div class="card-body">
-                        <h4 class="card-title">Noticia 2</h4>
-                        <img class="card-img-top" src="<?=base_url()?>assets/img/default-img.svg" alt="Card image">
-                        <p class="card-text">Some example text. Some example text.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                      </div>
-                    </div>
-                </div>
+                    <?php
+                    }
+                ?>
             </div>
             
         </div>

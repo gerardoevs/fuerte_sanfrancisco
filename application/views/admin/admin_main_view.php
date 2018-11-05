@@ -1,13 +1,10 @@
 <div id="content">
 
 	<nav class="navbar navbar-expand-md bg-light navbar-light">
-		<!-- Brand -->
 		<a class="navbar-brand" href="#">Noticias </a>
-		<!-- Toggler/collapsibe Button -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 		<span class="navbar-toggler-icon"></span>
 		</button>
-		<!-- Navbar links -->
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item">
@@ -27,38 +24,40 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Titulo Noticia</th>
-        <th>Editar</th>
-        <th>Inhabilitar</th>
-      </tr>
-    </thead>
-    <tbody>
-    	<?php foreach($noticias as $n){
+		    <thead>
+		      <tr>
+		        <th>Id</th>
+		        <th>Titulo Noticia</th>
+		        <th>Editar</th>
+		        <th>Inhabilitar</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    	<?php foreach($noticias as $n){
 
-    		?>
-				<td><?php echo $n->id_noticia?></td>
-				<td><strong><?php echo $n->titulo_noticia ?></strong></td>
-				<td><a href="<?= base_url('/Administration/editarNoticia/'.$n->id_noticia)?>" class="btn btn-info">Editar</a></td>
-				<?php
-					if($n->fs_estado == 1){
-						?>
-							<td><a href="<?= base_url('/Administration/habilitarNoticia/'.$n->id_noticia)?>" class="btn btn-success">Inhabilitar</a></td>
+		    		?>
+		    			<tr>
+						<td><?php echo $n->id_noticia?></td>
+						<td><strong><?php echo $n->titulo_noticia ?></strong></td>
+						<td><a href="<?= base_url('/Administration/editarNoticia/'.$n->id_noticia)?>" class="btn btn-info">Editar</a></td>
 						<?php
-					}else{
+							if($n->fs_estado == 1){
+								?>
+									<td><a href="<?= base_url('/Administration/habilitarNoticia/'.$n->id_noticia)?>" class="btn btn-success">Inhabilitar</a></td>
+								<?php
+							}else{
+								?>
+									<td><a href="<?= base_url('/Administration/habilitarNoticia/'.$n->id_noticia)?>" class="btn btn-secondary">Habilitar</a></td>
+								<?php
+							}
 						?>
-							<td><a href="<?= base_url('/Administration/habilitarNoticia/'.$n->id_noticia)?>" class="btn btn-secondary">Habilitar</a></td>
-						<?php
-					}
-				?>
-    		<?php
-    	
-    	}?>
+						</tr>
+		    		<?php
+		    	
+		    	}?>
 
-    </tbody>
-  </table>
+		    </tbody>
+		  </table>
 		</div>
 	</div>
 

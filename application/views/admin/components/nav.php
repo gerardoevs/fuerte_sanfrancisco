@@ -5,7 +5,7 @@
         </div>
 
         <ul class="list-unstyled components">
-            <p><center>Administracion</center></p>
+            <p><center>Administración</center></p>
             <li><a href="#"><span class="oi oi-clipboard"></span>  Noticias</a></li>
             <li><a href="#"><span class="oi oi-video"></span>  Directos</a></li>
             <li><a href="<?= base_url('/Administration/logout')?>">Cerrar sesión  <span class="oi oi-account-logout"></span></a></li>

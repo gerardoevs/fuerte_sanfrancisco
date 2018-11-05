@@ -9,32 +9,31 @@ class Administration_model extends CI_Model
 		parent::__construct();
 	}
 
-	public function agregar($nombre, $direccion, $tel,
-							$fechaS, $fechaE,$horaS, $horaE,
-							$observaciones,$nomproyecto,$cantidad,
-							$descripcion,$total)
+	public function agregar($titulo, $descripcion, $articulo)
 	{
-
 		$datos = array(
-			'nombre_cliente' => $nombre,
-			'direccion' => $direccion,
-			'telefono' => $tel,
-			'fecha_salida' => $fechaS,
-			'fecha_entrega' => $fechaE,
-			'hora_salida' => $horaS,
-			'hora_entrega' => $horaE,
-			'observaciones' => $observaciones,
-			'nombre_proyecto' => $nomproyecto,
-			'cantidad' => $cantidad,
-			'descripcion' => $descripcion,
-			'total' => $total
+			'titulo_noticia' => $titulo,
+			'descripcion_corta' => $descripcion,
+			'articulo' => $articulo,
+			'fs_estado' => 1
 			);
-		 $this->db->insert('alquiler',$datos);
+		 $this->db->insert('fs_noticias',$datos);
+		 return true;
+	}
+
+	public function agregarImagen($nombre,$id)
+	{
+		$datos = array(
+			'nombre_imagen' => $nombre,
+			'id_noticia' => $id
+			);
+		 $this->db->insert('fs_imagenes',$datos);
 		 return true;
 	}
 
 	public function select_all_users(){
-		return $this->db->query("SELECT * FROM fs_usuarios");
+		
+		return $query = $this->db->query("SELECT * FROM fs_usuarios");
 	}
 
 	public function select_all_news(){

@@ -1,13 +1,10 @@
 <div id="content">
 
 	<nav class="navbar navbar-expand-md bg-light navbar-light">
-		<!-- Brand -->
 		<a class="navbar-brand" href="#">Noticias </a>
-		<!-- Toggler/collapsibe Button -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 		<span class="navbar-toggler-icon"></span>
 		</button>
-		<!-- Navbar links -->
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item">
@@ -22,6 +19,18 @@
 			</ul>
 		</div>
 	</nav>
+
+
+	<div class="row">
+		<div class="col-sm-12">
+			<form action="" method="POST">
+				<div class="form-group">
+					<label for="titulo">Titulo de noticia:</label>
+					<input type="text" class="form-control" id="titulo" name="titulo">
+				</div>
+			</form>
+		</div>
+	</div>
 
 
 </div>

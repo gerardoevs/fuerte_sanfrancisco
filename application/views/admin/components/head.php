@@ -6,11 +6,13 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/w3.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/fonts/open-iconic/font/css/open-iconic-bootstrap.css" >
+	<link rel="stylesheet" href="<?= base_url() ?>assets/summernote/summernote-bs4.css" >
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
     <script src="<?= base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
     <script src="<?= base_url() ?>assets/js/popper.min.js"></script>
     <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
-    <script src="<?= base_url() ?>assets/js/mainscript.js"></script>
+    <script src="<?= base_url() ?>assets/summernote/summernote-bs4.js"></script>
+    <script src="<?= base_url() ?>assets/js/summernote.js"></script>
 	<title>Fuerte San Francisco</title>
 </head>
 <body>
