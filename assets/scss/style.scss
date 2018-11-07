@@ -306,7 +306,7 @@ a.article:hover {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-    .card-columns {column-count: 2;}
+    .card-columns {column-count: 1;}
 	#sidebar {
         margin-left: -250px;
     }

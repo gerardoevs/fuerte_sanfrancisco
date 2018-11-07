@@ -114,6 +114,7 @@ class Administration extends CI_Controller {
 							$Descripcion=$this->input->post('descripcion');
 							$Articulo=$this->input->post('articulo');
 							$nombre_imagen = $_FILES['portada']['name'];
+							$fechaHora = date("");
 							if($this->administration_model->agregar($Titulo, $Descripcion, $Articulo)){
 								$id = $insert_id = $this->db->insert_id();
 								if($this->administration_model->agregarImagen($nombre_imagen,$id)){

@@ -15,6 +15,7 @@ class Administration_model extends CI_Model
 			'titulo_noticia' => $titulo,
 			'descripcion_corta' => $descripcion,
 			'articulo' => $articulo,
+			//'fechaPublicacion' => $fechaPublicacion,
 			'fs_estado' => 1
 			);
 		 $this->db->insert('fs_noticias',$datos);
