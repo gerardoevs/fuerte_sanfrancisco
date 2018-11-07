@@ -204,7 +204,9 @@ a.article:hover {
     transition: all 0.3s; }
 
 .card {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  display: inline-block;
+  column-break-inside: avoid; }
 
 .img-noticia {
   max-width: 100%;
@@ -257,6 +259,9 @@ a.article:hover {
     MEDIAQUERIES
 ----------------------------------------------------- */
 @media (min-width: 576px) {
+  .card-columns {
+    -webkit-column-count: 1;
+    column-count: 1; }
   #sidebar {
     margin-left: -250px; }
   #sidebar.active {
@@ -265,6 +270,9 @@ a.article:hover {
     display: none; } }
 
 @media (min-width: 768px) {
+  .card-columns {
+    -webkit-column-count: 2;
+    column-count: 2; }
   #sidebar {
     margin-left: -250px; }
   #sidebar.active {
@@ -285,6 +293,9 @@ a.article:hover {
     object-fit: cover; } }
 
 @media (min-width: 992px) {
+  .card-columns {
+    -webkit-column-count: 2;
+    column-count: 2; }
   .cover-img {
     max-width: 100%;
     height: 300px;
@@ -292,6 +303,9 @@ a.article:hover {
     object-fit: cover; } }
 
 @media (min-width: 1200px) {
+  .card-columns {
+    -webkit-column-count: 2;
+    column-count: 2; }
   .cover-img {
     display: none;
     max-width: 100%;
