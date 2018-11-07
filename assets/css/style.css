@@ -204,9 +204,7 @@ a.article:hover {
     transition: all 0.3s; }
 
 .card {
-  margin-bottom: 1em;
-  display: inline-block;
-  column-break-inside: avoid; }
+  margin-bottom: 1em; }
 
 .img-noticia {
   max-width: 100%;
