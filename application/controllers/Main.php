@@ -11,14 +11,15 @@ class Main extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('form_validation');
 		$this->load->model('Main_model');
+		$this->load->library('Mobile_Detect');
 	}
 
 	public function index()
 	{
-		$this->load->library('Mobile_Detect');
+		
 		$detect = new Mobile_Detect();
 		if ($detect->isMobile() || $detect->isTablet() || $detect->isAndroidOS() || $detect->isiOS()) {
-	        header("Location: ".$this->config->item('base_url')."/mobile"); exit;
+	        header("Location: ".$this->config->item('base_url')."/Main/mobile"); exit;
 	    }else{
 			$data['noticiapar'] = $this->Main_model->select_even_news();
 			$data['noticiainpar'] = $this->Main_model->select_odd_news();
@@ -34,7 +35,17 @@ class Main extends CI_Controller {
 		$data['noticias'] = $this->Main_model->select_all_news();
 		$this->load->view('components/head');
 		$this->load->view('components/nav');
-		$this->load->view('mobile/main_view', $data);
+		$this->load->view('mobile/main_view_mobile', $data);
 		$this->load->view('components/footer');
 	}
+
+	public function noticia(){
+		$id = $this->uri->segment('3');
+		$data['noticia'] = $this->Main_model->cargarNoticia($id);
+		$this->load->view('components/head');
+		$this->load->view('components/nav');
+		$this->load->view('noticia_view', $data);
+		$this->load->view('components/footer');
+	}
+
 }

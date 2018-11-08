@@ -1,19 +1,17 @@
 <!-- Sidebar -->
     <nav id="sidebar">
-        <div class="sidebar-header">
-            <img src="<?=base_url()?>assets/img/logo_fsf.png" style="width:60px; display: block; margin: auto;">
-        </div>
-
+        
         <ul class="list-unstyled components">
+
             <p><center>C.D.Fuerte San Fracisco</center></p>
             <li>
-                <a href="#">About</a>
+                <li><a href="<?=base_url()?>">Noticias</a></li>
             </li>
             <li>
-                <a href="#">Portfolio</a>
+                <li><a href="">Galeria</a></li>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <li><a href="">Donaciones</a></li>
             </li>
         </ul>
     </nav>
@@ -31,7 +29,7 @@
 			    		Fuerte San Francisco
 			    </a>
 			   	<ul class="nav-options">
-			   		<li><a href="">Noticias</a></li>
+			   		<li><a href="<?=base_url()?>">Noticias</a></li>
 			   		<li><a href="">Galeria</a></li>
 			   		<li><a href="">Donaciones</a></li>
 			   	</ul>

@@ -9,13 +9,13 @@ class Administration_model extends CI_Model
 		parent::__construct();
 	}
 
-	public function agregar($titulo, $descripcion, $articulo)
+	public function agregar($titulo, $descripcion, $articulo,$fechaPublicacion)
 	{
 		$datos = array(
 			'titulo_noticia' => $titulo,
 			'descripcion_corta' => $descripcion,
 			'articulo' => $articulo,
-			//'fechaPublicacion' => $fechaPublicacion,
+			'fechaPublicacion' => $fechaPublicacion,
 			'fs_estado' => 1
 			);
 		 $this->db->insert('fs_noticias',$datos);

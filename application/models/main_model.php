@@ -23,6 +23,11 @@ class Main_model extends CI_Model
 		return $query->result();
 	}
 
+	public function cargarNoticia($id){
+		$query = $this->db->query("SELECT fs_noticias.fechaPublicacion,fs_noticias.id_noticia,fs_noticias.titulo_noticia, fs_noticias.descripcion_corta, fs_noticias.articulo, fs_imagenes.nombre_imagen FROM `fs_noticias` INNER JOIN fs_imagenes WHERE fs_noticias.id_noticia = fs_imagenes.id_noticia AND fs_noticias.id_noticia = $id");
+		return $query->result();
+	}
+
 
 
 }

@@ -14,7 +14,6 @@
                         Imagen de prueba 01
                     </div>
                 </div>  
-                
             </div>
         </div>
     </div>
@@ -26,48 +25,24 @@
                 <div class="col-md-12">
                     <div class="card-columns">
                     <?php
-                        foreach ($noticiainpar as $ninpar) {
+                        foreach ($noticias as $noticia) {
                         ?>
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="<?=base_url()?>main/noticia/<?=$ninpar->id_noticia?>"><?php echo $ninpar->titulo_noticia?></a></h4>
+                                     <h4 class="card-title"><a href="<?=base_url()?>main/noticia/<?=$noticia->id_noticia?>"><?php echo $noticia->titulo_noticia?></a></h4>
                                     <?php 
-                                        if($ninpar->nombre_imagen == "" ||  is_null($ninpar->nombre_imagen)){
+                                        if($noticia->nombre_imagen == "" ||  is_null($noticia->nombre_imagen)){
                                             ?>
                                             <img class="card-img-top img-noticia" src="<?=base_url()?>assets/img/default-img.svg" alt="Imagen de noticia"><hr>
                                             <?php
                                         }else{
                                             ?>
-                                            <img class="card-img-top img-noticia" src="<?=base_url('imgUploads/portadas/').$ninpar->nombre_imagen?>" alt="Imagen de noticia"><hr>
+                                            <img class="card-img-top img-noticia" src="<?=base_url('imgUploads/portadas/').$noticia->nombre_imagen?>" alt="Imagen de noticia"><hr>
                                             <?php
                                         }
                                     ?>
-                                    <p class="card-text"><?php echo $ninpar->descripcion_corta?></p>
-                                    <a href="<?=base_url()?>main/noticia/<?=$ninpar->id_noticia?>" class="card-link">Ver noticia</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-                      
-                        <?php
-                        }
-                        foreach ($noticiapar as $npar) {
-                        ?>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="<?=base_url()?>main/noticia/<?=$npar->id_noticia?>"><?php echo $npar->titulo_noticia?></a></h4>
-                                    <?php 
-                                        if($npar->nombre_imagen == "" ||  is_null($npar->nombre_imagen)){
-                                            ?>
-                                            <img class="card-img-top img-noticia" src="<?=base_url()?>assets/img/default-img.svg" alt="Imagen de noticia"><hr>
-                                            <?php
-                                        }else{
-                                            ?>
-                                            <img class="card-img-top img-noticia" src="<?=base_url('imgUploads/portadas/').$npar->nombre_imagen?>" alt="Imagen de noticia"><hr>
-                                            <?php
-                                        }
-                                    ?>
-                                    <p class="card-text"><?php echo $npar->descripcion_corta?></p>
-                                    <a href="<?=base_url()?>main/noticia/<?=$npar->id_noticia?>" class="card-link">Ver noticia</a>
+                                    <p class="card-text"><?php echo $noticia->descripcion_corta?></p>
+                                    <a href="<?=base_url()?>main/noticia/<?=$noticia->id_noticia?>" class="card-link">Ver noticia</a>
                                     <a href="#" class="card-link">Another link</a>
                                 </div>
                             </div>

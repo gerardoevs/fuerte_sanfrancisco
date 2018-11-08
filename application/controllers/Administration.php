@@ -17,9 +17,7 @@ class Administration extends CI_Controller {
 
 	public function index()
 	{
-		if($this->session->userdata('logged_in')){
-
-			
+		if($this->session->userdata('logged_in')){			
 			$data['noticias'] = $this->administration_model->select_all_news();
 			$this->load->view('admin/components/head');
 			$this->load->view('admin/components/nav');
@@ -84,6 +82,18 @@ class Administration extends CI_Controller {
 		echo($this->encryption->decrypt("YOUR_KEY"));
 	}
 
+	public function noticias(){
+		if($this->session->userdata('logged_in')){			
+			$data['noticias'] = $this->administration_model->select_all_news();
+			$this->load->view('admin/components/head');
+			$this->load->view('admin/components/nav');
+			$this->load->view('admin/noticias/tabla_noticias', $data);
+			$this->load->view('admin/components/footer');	
+		}else{
+			redirect("/Administration/login", "refresh");
+		}
+	}
+
 
 	public function nuevaNoticia(){
 		if($this->session->userdata('logged_in')){
@@ -114,8 +124,8 @@ class Administration extends CI_Controller {
 							$Descripcion=$this->input->post('descripcion');
 							$Articulo=$this->input->post('articulo');
 							$nombre_imagen = $_FILES['portada']['name'];
-							$fechaHora = date("");
-							if($this->administration_model->agregar($Titulo, $Descripcion, $Articulo)){
+							$fechaHora = date("Y:m:d h:i:s");
+							if($this->administration_model->agregar($Titulo, $Descripcion, $Articulo,$fechaHora)){
 								$id = $insert_id = $this->db->insert_id();
 								if($this->administration_model->agregarImagen($nombre_imagen,$id)){
 									$serverUploadPath = $_SERVER['DOCUMENT_ROOT']."/fuerte.sf/imgUploads/portadas/";

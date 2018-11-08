@@ -13,6 +13,7 @@
     <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>assets/summernote/summernote-bs4.js"></script>
     <script src="<?= base_url() ?>assets/js/summernote.js"></script>
+    <script src="<?= base_url() ?>assets/js/mainscript.js"></script>
 	<title>Fuerte San Francisco</title>
 </head>
 <body>
