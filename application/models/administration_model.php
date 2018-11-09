@@ -81,6 +81,24 @@ class Administration_model extends CI_Model
 		 return true;
 	}
 
+	public function verificarPortadas(){
+		$query = $this->db->query("SELECT * FROM fs_portadas");
+		return $query->result();
+	}
+
+	public function select_portadas(){
+		$query = $this->db->query("SELECT * FROM fs_noticias INNER JOIN fs_portadas WHERE fs_portadas.id_noticia = fs_noticias.id_noticia");
+		return $query->result();
+	}	
+
+	public function agregarPortada(){
+		$datos = array(
+			'id_noticia' => $id
+			);
+		 $this->db->insert('fs_portadas',$datos);
+		 return true;	
+	}
+
 	
 
 }

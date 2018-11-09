@@ -287,17 +287,60 @@ class Administration extends CI_Controller {
 	}
 
 	public function habilitarNoticia(){
-		$id = $this->uri->segment('3');
-		$data['noticia'] = $this->administration_model->estadoNoticia($id);
-		foreach ($data['noticia'] as $n) {
-			if($n->fs_estado == 1){
-				$this->administration_model->editarEstado(0,$id);
-				redirect("/Administration/noticias", "refresh");
-			}else{
-				$this->administration_model->editarEstado(1,$id);
-				redirect("/Administration/noticias", "refresh");
+		if($this->session->userdata('logged_in')){
+			$id = $this->uri->segment('3');
+			$data['noticia'] = $this->administration_model->estadoNoticia($id);
+			foreach ($data['noticia'] as $n) {
+				if($n->fs_estado == 1){
+					$this->administration_model->editarEstado(0,$id);
+					redirect("/Administration/noticias", "refresh");
+				}else{
+					$this->administration_model->editarEstado(1,$id);
+					redirect("/Administration/noticias", "refresh");
+				}
 			}
+		}else{
+			redirect("/Administration/login", "refresh");
 		}
+		
+	}
+
+	public function portadas(){
+		if($this->session->userdata('logged_in')){
+			$data['portadas'] = $this->administration_model->select_portadas();
+			$data['noticias'] = $this->administration_model->select_all_news();
+			$this->load->view('admin/components/head');
+			$this->load->view('admin/components/nav');
+			$this->load->view('admin/portadas/portada_main_view',$data);
+			$this->load->view('admin/components/footer');	
+		}else{
+			redirect("/Administration/login", "refresh");
+		}
+	}
+
+	public function agregarPortada(){
+		if($this->session->userdata('logged_in')){
+			$id = $this->uri->segment('3');
+			$cantidadPortadas = count($this->administration_model->verificarPortadas());
+			if($cantidadPortadas >= 3){
+				$data['error'] = "ya hay 3 noticas en portada, porfavor deselecciona una para agregar una nueva!";
+				$this->load->view('admin/components/head');
+				$this->load->view('admin/noticias/exceptions/general_error',$data);
+				$this->load->view('admin/components/footer');
+			}else{
+				if($this->administration_model->agregarPortada($id)){
+					redirect("/Administration/portadas", "refresh");
+				}else{
+					$data['error'] = "Ocurrio un problema al agregar la noticia de portada, por favor intenta mas tarde!";
+					$this->load->view('admin/components/head');
+					$this->load->view('admin/noticias/exceptions/general_error',$data);
+					$this->load->view('admin/components/footer');
+				}
+			}
+		}else{
+			redirect("/Administration/login", "refresh");
+		}
+		
 	}
 
 }
