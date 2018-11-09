@@ -8,7 +8,7 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a href="<?= base_url('/Administration') ?>" class="nav-link"><span class="oi oi-list"></span>  Listado de Noticias</a>
+					<a href="<?= base_url('/Administration/noticias') ?>" class="nav-link"><span class="oi oi-list"></span>  Listado de Noticias</a>
 				</li>
 				<li class="nav-item">
 					<a href="<?= base_url('/Administration/nuevaNoticia') ?>" class="nav-link"><span class="oi oi-plus"></span>  Agregar Noticia</a>

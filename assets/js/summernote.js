@@ -7,7 +7,7 @@ $(document).ready(function () {
 	    ['color', ['color']],
 	    ['para', ['ul', 'ol', 'paragraph']],
 	    ['height', ['height']],
-	    ['insert', ['video', 'link','picture']],
+	    ['insert', ['video', 'link']],
 	    ['misc', ['codeview']]
 	  ],
 	  height: "400px",

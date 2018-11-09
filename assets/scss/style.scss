@@ -172,10 +172,19 @@ a.article:hover {
     transition: all 0.3s;
 }
 
+#content-fluid {
+    width: 100%;
+    margin-top:80px;
+    padding: 0;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
 
 /* ---------------------------------------------------
     MY STYLE
 ----------------------------------------------------- */
+
 
 .btn-file {
     position: relative;
@@ -216,7 +225,7 @@ a.article:hover {
     height:100%;
 	& li{
 		display:inline-block;
-		width:170px;
+		width:100px;
         vertical-align: middle;
 		& a{
 			display:block;
@@ -257,6 +266,8 @@ a.article:hover {
 }
 
 .w3-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}10%{opacity:1}90%{opacity:1}100%{opacity:0}}
+
+.mySlides{margin-bottom:2em;}
 
 /* ---------------------------------------------------
     MY STYLE LOGIN

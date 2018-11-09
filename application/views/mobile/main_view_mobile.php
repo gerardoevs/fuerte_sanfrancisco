@@ -1,19 +1,15 @@
-<div id="content">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="jumbotron w3-display-container">
-                <div class="w3-display-container mySlides">
-                    <img class="cover-img w3-animate-fading" src="<?=base_url()?>assets/img/Fuerte-San-Francisco-Independiente-1-1024x709.jpg" style="width:100%">
-                    <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black w3-animate-fading header-titulo">
-                        4-0 Victoria CD Fuerte San Francisco
-                    </div>
-                </div>
-                <div class="w3-display-container mySlides">
-                    <img class="cover-img w3-animate-fading" src="<?=base_url()?>assets/img/default-img.svg" style="width:100%">
-                    <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black w3-animate-fading header-titulo">
-                        Imagen de prueba 01
-                    </div>
-                </div>  
+<div id="content-fluid">
+    <div class="mySlides w3-display-container">
+        <div class="w3-display-container mySlides">
+            <img class="cover-img w3-animate-fading" src="<?=base_url()?>assets/img/Fuerte-San-Francisco-Independiente-1-1024x709.jpg" style="width:100%">
+            <div class="w3-display w3-large w3-container w3-padding-16 w3-light-grey w3-animate-fading header-titulo">
+                4-0 Victoria CD Fuerte San Francisco
+            </div>
+        </div>
+        <div class="w3-display-container mySlides">
+            <img class="cover-img w3-animate-fading" src="<?=base_url()?>assets/img/default-img.svg" style="width:100%">
+            <div class="w3-display w3-large w3-container w3-padding-16 w3-light-grey w3-animate-fading header-titulo">
+                Imagen de prueba 01
             </div>
         </div>
     </div>

@@ -6,7 +6,7 @@
                     <div class="card">
                         
                         <div class="card-body">
-                            <h2 class="card-title"><?= $noticia[0]->titulo_noticia; ?></h2>
+                            <h2 class="card-title"><?= $noticia[0]->titulo_noticia; ?></h2><hr>
                             <img class="card-img-top" src="<?=base_url('imgUploads/portadas/').$noticia[0]->nombre_imagen?>" alt="Card image">
                             <hr>
                             <p class="card-text"><?= $noticia[0]->fechaPublicacion; ?></p>

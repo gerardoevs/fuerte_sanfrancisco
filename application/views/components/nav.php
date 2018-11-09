@@ -11,6 +11,12 @@
                 <li><a href="">Galeria</a></li>
             </li>
             <li>
+                <li><a href="">Historia</a></li>
+            </li>
+            <li>
+                <li><a href="">Club</a></li>
+            </li>
+            <li>
                 <li><a href="">Donaciones</a></li>
             </li>
         </ul>
@@ -24,13 +30,15 @@
     		</div>
         	
             <div class="nav-menu">
-        		<a class="navbar-brand" href="#">
+        		<a class="navbar-brand" href="<?=base_url()?>">
 			    	<img src="<?=base_url()?>assets/img/logo_fsf.png" style="width:40px;">
 			    		Fuerte San Francisco
 			    </a>
 			   	<ul class="nav-options">
 			   		<li><a href="<?=base_url()?>">Noticias</a></li>
 			   		<li><a href="">Galeria</a></li>
+                    <li><a href="">Historia</a></li>
+                    <li><a href="">Club</a></li>
 			   		<li><a href="">Donaciones</a></li>
 			   	</ul>
             </div>
