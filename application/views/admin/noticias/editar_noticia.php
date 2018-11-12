@@ -56,7 +56,16 @@
 					            <input type="text" class="form-control" readonly>
 					        </div>
 					        <div>
-					        	<img id='img-upload' src="<?= base_url();?>/imgUploads/portadas/<?=$noticia[0]->nombre_imagen?>" style="width:auto; height:100px; display:block; margin: auto;"/>
+					        	<?php if(isset($noticia[0]->nombre_imagen)){
+					        		?>
+					        		<img id='img-upload' src="<?= base_url();?>/imgUploads/portadas/<?=$noticia[0]->nombre_imagen?>" style="width:auto; height:100px; display:block; margin: auto;"/>
+					        		<?php
+					        	}else{
+					        		?>
+					        		<img id='img-upload' src="" style="width:auto; height:100px; display:block; margin: auto;"/>
+					        		<?php
+					        	}?>
+					        	
 					        </div>
 					        
 					    </div>

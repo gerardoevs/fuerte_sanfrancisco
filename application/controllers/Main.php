@@ -21,6 +21,7 @@ class Main extends CI_Controller {
 		if ($detect->isMobile() || $detect->isTablet() || $detect->isAndroidOS() || $detect->isiOS()) {
 	        header("Location: ".$this->config->item('base_url')."/Main/mobile"); exit;
 	    }else{
+	    	$data['portadas'] = $this->Main_model->select_all_portadas();
 	    	$data['noticiapar'] = $this->Main_model->select_even_news();
 			$data['noticiainpar'] = $this->Main_model->select_odd_news();
 			$this->load->view('components/head');
@@ -33,6 +34,7 @@ class Main extends CI_Controller {
 
 
 	public function mobile(){
+		$data['portadas'] = $this->Main_model->select_all_portadas();
 		$data['noticias'] = $this->Main_model->select_all_news();
 		$this->load->view('components/head');
 		$this->load->view('components/nav');
@@ -46,7 +48,7 @@ class Main extends CI_Controller {
 		if(empty($data['noticia'])){
 			redirect("/", "refresh");
 		}else{
-			$this->load->view('components/head');
+			$this->load->view('components/head-clean');
 			$this->load->view('components/nav');
 			$this->load->view('noticia_view', $data);
 			$this->load->view('components/footer');

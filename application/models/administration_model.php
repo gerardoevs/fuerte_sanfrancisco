@@ -31,8 +31,8 @@ class Administration_model extends CI_Model
 			'fechaPublicacion' => $fechaPublicacion,
 			'fs_estado' => 1
 			);
+		 $this->db->where('id_noticia', $id); 
 		 $this->db->update('fs_noticias',$datos);
-		 $this->db->where('id_noticia', $id);
 		 return true;
 	}
 
@@ -49,11 +49,12 @@ class Administration_model extends CI_Model
 	public function editarImagen($nombre,$id)
 	{
 		$datos = array(
-			'nombre_imagen' => $nombre
+			'nombre_imagen' => $nombre,
+			'id_noticia' => $id
 			);
-		 $this->db->update('fs_imagenes',$datos);
-		 $this->db->where('id_noticia',$id);
-		 return true;
+		$this->db->where('id_imagenes',$id);
+		$this->db->update('fs_imagenes',$datos); 
+		return true;
 	}
 
 	public function select_all_users(){
@@ -66,8 +67,22 @@ class Administration_model extends CI_Model
 		return $query->result();
 	}
 
+	public function verifyImg($id){
+		$query = $this->db->query("SELECT * FROM fs_imagenes WHERE id_noticia=$id");
+		if(count($query->result()) > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	public function select_new($id){
 		$query = $this->db->query("SELECT fs_noticias.id_noticia,fs_noticias.titulo_noticia, fs_noticias.descripcion_corta, fs_noticias.articulo, fs_imagenes.nombre_imagen FROM `fs_noticias` INNER JOIN fs_imagenes WHERE fs_noticias.id_noticia = fs_imagenes.id_noticia AND fs_noticias.id_noticia=$id");
+		return $query->result();
+	}
+
+	public function select_new_no_img($id){
+		$query = $this->db->query("SELECT * FROM fs_noticias WHERE id_noticia=$id");
 		return $query->result();
 	}
 
@@ -91,7 +106,7 @@ class Administration_model extends CI_Model
 		return $query->result();
 	}	
 
-	public function agregarPortada(){
+	public function agregarPortada($id){
 		$datos = array(
 			'id_noticia' => $id
 			);

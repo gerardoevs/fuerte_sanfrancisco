@@ -174,8 +174,9 @@ class Administration extends CI_Controller {
 	public function publicarNoticiaEditada(){
 		if($this->session->userdata('logged_in')){
 			if(isset($_POST['submit'])){
-				if ($_FILES['portada']['name']!="") {
-					if($_FILES['portada']['type']=='image/jpeg' || $_FILES['portada']['type']=='image/png' || $_FILES['portada']['type']=='image/jpg'){
+				$id = $this->input->post('id');
+				if ($this->administration_model->verifyImg($id)) {
+					if($_FILES['portada']['name']==""){
 						$this->form_validation->set_rules('titulo', 'Titulo de noticia', 'required');
 						$this->form_validation->set_rules('descripcion', 'Descripcion de noticia', 'required');
 						$this->form_validation->set_rules('articulo', 'Articulo de noticia', 'required');
@@ -185,46 +186,120 @@ class Administration extends CI_Controller {
 							$this->load->view('admin/noticias/exceptions/form_validation_error');
 							$this->load->view('admin/components/footer');
 			        	}else{
-			        		$id = $this->input->post('id');
 			        		$Titulo=$this->input->post('titulo');
 							$Descripcion=$this->input->post('descripcion');
 							$Articulo=$this->input->post('articulo');
-							$nombre_imagen = $_FILES['portada']['name'];
 							$fechaHora = date("Y:m:d h:i:s");
 							if($this->administration_model->editar($Titulo, $Descripcion, $Articulo,$fechaHora,$id)){
-								$id = $insert_id = $this->db->insert_id();
-								if($this->administration_model->editarImagen($nombre_imagen,$id)){
-									$serverUploadPath = $_SERVER['DOCUMENT_ROOT']."/fuerte.sf/imgUploads/portadas/";
-									move_uploaded_file($_FILES['portada']['tmp_name'], $serverUploadPath.$nombre_imagen);
-									$data['error'] = "La noticia ha sido publicada exitosamente!";
-									$this->load->view('admin/components/head');
-									$this->load->view('admin/noticias/noticia_agregada_exitosamente',$data);
-									$this->load->view('admin/components/footer');
-								}else{
-									$data['error'] = "No se ha logrado agregar una imagen al servidor, la noticia no tendra imagen de portada.";
-									$this->load->view('admin/components/head');
-									$this->load->view('admin/noticias/exceptions/general_error',$data);
-									$this->load->view('admin/components/footer');
-								}	
+								$data['error'] = "La noticia ha sido publicada exitosamente!";
+								$this->load->view('admin/components/head');
+								$this->load->view('admin/noticias/noticia_agregada_exitosamente',$data);
+								$this->load->view('admin/components/footer');	
 							}else{
 								$data['error'] = "No se ha logrado publicar la noticia, porfavor intente mas tarde!";
 								$this->load->view('admin/components/head');
 								$this->load->view('admin/noticias/exceptions/general_error',$data);
 								$this->load->view('admin/components/footer');
 							}	
-
 			        	}
 					}else{
-						$data['error'] = "El tipo de imagen no es admitido! <br> Admitidos: .JPG, .JPGE, .PNG!";
-						$this->load->view('admin/components/head');
-						$this->load->view('admin/noticias/exceptions/img_type_error',$data);
-						$this->load->view('admin/components/footer');
+						if($_FILES['portada']['type']=='image/jpeg' || $_FILES['portada']['type']=='image/png' || $_FILES['portada']['type']=='image/jpg'){
+							$this->form_validation->set_rules('titulo', 'Titulo de noticia', 'required');
+							$this->form_validation->set_rules('descripcion', 'Descripcion de noticia', 'required');
+							$this->form_validation->set_rules('articulo', 'Articulo de noticia', 'required');
+				        	if ($this->form_validation->run() == FALSE)
+				        	{
+				        		$this->load->view('admin/components/head');
+								$this->load->view('admin/noticias/exceptions/form_validation_error');
+								$this->load->view('admin/components/footer');
+				        	}else{
+				        		$Titulo=$this->input->post('titulo');
+								$Descripcion=$this->input->post('descripcion');
+								$Articulo=$this->input->post('articulo');
+								$nombre_imagen = $_FILES['portada']['name'];
+								$fechaHora = date("Y:m:d h:i:s");
+								if($this->administration_model->editar($Titulo, $Descripcion, $Articulo,$fechaHora,$id)){
+									if($this->administration_model->editarImagen($nombre_imagen,$id)){
+										$serverUploadPath = $_SERVER['DOCUMENT_ROOT']."/fuerte.sf/imgUploads/portadas/";
+										move_uploaded_file($_FILES['portada']['tmp_name'], $serverUploadPath.$nombre_imagen);
+										$data['error'] = "La noticia ha sido publicada exitosamente!";
+										$this->load->view('admin/components/head');
+										$this->load->view('admin/noticias/noticia_agregada_exitosamente',$data);
+										$this->load->view('admin/components/footer');
+									}else{
+										$data['error'] = "No se ha logrado agregar una imagen al servidor, la noticia no tendra imagen de portada.";
+										$this->load->view('admin/components/head');
+										$this->load->view('admin/noticias/exceptions/general_error',$data);
+										$this->load->view('admin/components/footer');
+									}	
+								}else{
+									$data['error'] = "No se ha logrado publicar la noticia, porfavor intente mas tarde!";
+									$this->load->view('admin/components/head');
+									$this->load->view('admin/noticias/exceptions/general_error',$data);
+									$this->load->view('admin/components/footer');
+								}	
+
+				        	}
+						}else{
+							$data['error'] = "El tipo de imagen no es admitido! <br> Admitidos: .JPG, .JPGE, .PNG!";
+							$this->load->view('admin/components/head');
+							$this->load->view('admin/noticias/exceptions/img_type_error',$data);
+							$this->load->view('admin/components/footer');
+						}
 					}
 				}else{
-					$data['error'] = "No se ha seleccionado una imagen de portada!";
-					$this->load->view('admin/components/head');
-					$this->load->view('admin/noticias/exceptions/no_img_error',$data);
-					$this->load->view('admin/components/footer');
+					if($_FILES['portada']['name']!=""){
+
+						if($_FILES['portada']['type']=='image/jpeg' || $_FILES['portada']['type']=='image/png' || $_FILES['portada']['type']=='image/jpg'){
+							$this->form_validation->set_rules('titulo', 'Titulo de noticia', 'required');
+							$this->form_validation->set_rules('descripcion', 'Descripcion de noticia', 'required');
+							$this->form_validation->set_rules('articulo', 'Articulo de noticia', 'required');
+				        	if ($this->form_validation->run() == FALSE)
+				        	{
+				        		$this->load->view('admin/components/head');
+								$this->load->view('admin/noticias/exceptions/form_validation_error');
+								$this->load->view('admin/components/footer');
+				        	}else{
+				        		$Titulo=$this->input->post('titulo');
+								$Descripcion=$this->input->post('descripcion');
+								$Articulo=$this->input->post('articulo');
+								$nombre_imagen = $_FILES['portada']['name'];
+								$fechaHora = date("Y:m:d h:i:s");
+								if($this->administration_model->editar($Titulo, $Descripcion, $Articulo,$fechaHora,$id)){
+									if($this->administration_model->editarImagen($nombre_imagen,$id)){
+										$serverUploadPath = $_SERVER['DOCUMENT_ROOT']."/fuerte.sf/imgUploads/portadas/";
+										move_uploaded_file($_FILES['portada']['tmp_name'], $serverUploadPath.$nombre_imagen);
+										$data['error'] = "La noticia ha sido publicada exitosamente!";
+										$this->load->view('admin/components/head');
+										$this->load->view('admin/noticias/noticia_agregada_exitosamente',$data);
+										$this->load->view('admin/components/footer');
+									}else{
+										$data['error'] = "No se ha logrado agregar una imagen al servidor, la noticia no tendra imagen de portada.";
+										$this->load->view('admin/components/head');
+										$this->load->view('admin/noticias/exceptions/general_error',$data);
+										$this->load->view('admin/components/footer');
+									}	
+								}else{
+									$data['error'] = "No se ha logrado publicar la noticia, porfavor intente mas tarde!";
+									$this->load->view('admin/components/head');
+									$this->load->view('admin/noticias/exceptions/general_error',$data);
+									$this->load->view('admin/components/footer');
+								}	
+
+				        	}
+						}else{
+							$data['error'] = "El tipo de imagen no es admitido! <br> Admitidos: .JPG, .JPGE, .PNG!";
+							$this->load->view('admin/components/head');
+							$this->load->view('admin/noticias/exceptions/img_type_error',$data);
+							$this->load->view('admin/components/footer');
+						}
+					}else{
+						$data['error'] = "No se ha seleccionado una imagen de portada!";
+						$this->load->view('admin/components/head');
+						$this->load->view('admin/noticias/exceptions/no_img_error',$data);
+						$this->load->view('admin/components/footer');
+					}
+					
 				}
 			}else{
 				$data['error'] = "No se ha seleccionado una imagen de portada!";
@@ -276,11 +351,20 @@ class Administration extends CI_Controller {
 	public function editarNoticia(){
 		if($this->session->userdata('logged_in')){
 			$id = $this->uri->segment('3');
-			$data['noticia'] = $this->administration_model->select_new($id);
-			$this->load->view('admin/components/head');
-			$this->load->view('admin/components/nav');
-			$this->load->view('admin/noticias/editar_noticia',$data);
-			$this->load->view('admin/components/footer');	
+			if($this->administration_model->verifyImg($id)){
+				$data['noticia'] = $this->administration_model->select_new($id);
+				$this->load->view('admin/components/head');
+				$this->load->view('admin/components/nav');
+				$this->load->view('admin/noticias/editar_noticia',$data);
+				$this->load->view('admin/components/footer');
+			}else{
+				$data['noticia'] = $this->administration_model->select_new_no_img($id);
+				$this->load->view('admin/components/head');
+				$this->load->view('admin/components/nav');
+				$this->load->view('admin/noticias/editar_noticia',$data);
+				$this->load->view('admin/components/footer');
+			}
+				
 		}else{
 			redirect("/Administration/login", "refresh");
 		}
