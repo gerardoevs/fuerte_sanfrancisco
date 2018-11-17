@@ -1,20 +1,53 @@
 <div id="content">
     <div class="row">
         <div class="col-sm-12">
-            <div class="mySlides w3-display-container" style="background-color: #FAFAFA;">
+            <div class="mySlides " style="background-color: #FAFAFA;">
                 
-                <?php 
-                    foreach ($portadas as $portada) {
-                        ?>
-                        <div class="w3-display-container ">
-                            <img class="cover-img w3-animate-fading" src="<?=base_url()?>imgUploads/portadas/<?= $portada->nombre_imagen?>" style="margin: auto;">
-                            <div class="w3-display w3-large w3-container w3-padding-16 w3-light-grey w3-animate-fading header-titulo">
-                                <?= $portada->titulo_noticia ?>
-                            </div>
-                        </div>
+                <div id="fsSlider" class="carousel slide" data-ride="carousel" style="background-color: rgba(0,0,0,0.5);">
+
+                      <ul class="carousel-indicators">
+                        <li data-target="#fsSlider" data-slide-to="0" class="active"></li>
+                        <li data-target="#fsSlider" data-slide-to="1"></li>
+                        <li data-target="#fsSlider" data-slide-to="2"></li>
+                      </ul>
+                      
+                      <div class="carousel-inner">
                         <?php
-                    }
-                ?>
+                            $count=0;
+                            foreach ($portadas as $portada) {
+                                if($count==0){ $count=1;
+                                    ?>
+                                    <div class="carousel-item active">
+                                    <?php
+                                }else{
+                                     ?>
+                                    <div class="carousel-item">
+                                    <?php
+                                }
+                               ?>
+                                <img src="<?=base_url();?>imgUploads/portadas/<?=$portada->nombre_imagen?>" alt="<?=$portada->titulo_noticia;?>">
+                                    <div class="carousel-caption ">
+                                        <div class="titulo-noticia-portada">
+                                            <h3 class=""><?=$portada->titulo_noticia;?></h3 >
+                                            <p><a href="<?=base_url()?>main/noticia/<?=$portada->id_noticia?>">ver noticia</a></p>
+                                        </div>
+                                    </div>
+                                </div>  
+
+                               <?php
+                            }
+                        ?>
+                        
+                        
+                      </div>
+                      
+                      <a class="carousel-control-prev" href="#fsSlider" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                      </a>
+                      <a class="carousel-control-next" href="#fsSlider" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                      </a>
+                    </div>
                 
             </div>
         </div>
