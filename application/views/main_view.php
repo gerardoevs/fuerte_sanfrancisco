@@ -140,7 +140,7 @@
              <div class="row">
                  <div class="col-md-12">
                      <div class="card">
-                      <div class="card-body" style="background-color: #eee; height: 800px;">
+                      <div class="card-body" style="background-color: #eee; height: 400px;">
                         <h4 class="card-title">Card title</h4>
                         <p class="card-text">Some example text. Some example text.</p>
                         <a href="#" class="card-link">Card link</a>
@@ -150,6 +150,7 @@
                  </div>
              </div>
         </div>
+        
     </div>
 </div>
 

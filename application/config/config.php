@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set('America/El_Salvador');
 
 
-$config['base_url'] = 'http://192.168.0.13/fuerte.sf';
+$config['base_url'] = 'http://localhost/fuerte.sf';
 
 /*
 |--------------------------------------------------------------------------
