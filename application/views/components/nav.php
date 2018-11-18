@@ -5,19 +5,19 @@
 
             <p><center>C.D.Fuerte San Fracisco</center></p>
             <li>
-                <li><a href="<?=base_url()?>">Noticias</a></li>
+                <li><a class="menu-link" href="<?=base_url()?>">Noticias</a></li>
             </li>
             <li>
-                <li><a href="">Galeria</a></li>
+                <li><a class="menu-link" href="">Galeria</a></li>
             </li>
             <li>
-                <li><a href="">Historia</a></li>
+                <li><a class="menu-link" href="">Historia</a></li>
             </li>
             <li>
-                <li><a href="">Club</a></li>
+                <li><a class="menu-link" href="">Club</a></li>
             </li>
             <li>
-                <li><a href="">Donaciones</a></li>
+                <li><a class="menu-link" href="">Donaciones</a></li>
             </li>
         </ul>
     </nav>
@@ -35,11 +35,11 @@
 			    		Fuerte San Francisco
 			    </a>
 			   	<ul class="nav-options">
-			   		<li><a href="<?=base_url()?>">Noticias</a></li>
-			   		<li><a href="">Galeria</a></li>
-                    <li><a href="">Historia</a></li>
-                    <li><a href="">Club</a></li>
-			   		<li><a href="">Donaciones</a></li>
+			   		<li><a class="menu-link" href="<?=base_url()?>">Noticias</a></li>
+			   		<li><a class="menu-link" href="">Galeria</a></li>
+                    <li><a class="menu-link" href="">Historia</a></li>
+                    <li><a class="menu-link" href="">Club</a></li>
+			   		<li><a class="menu-link" href="">Donaciones</a></li>
 			   	</ul>
             </div>
         </nav>

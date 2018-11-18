@@ -114,6 +114,15 @@ class Administration_model extends CI_Model
 		 return true;	
 	}
 
+	public function eliminarPortada($id){
+		$query = $this->db->query("DELETE FROM fs_portadas WHERE id_noticia=$id");
+		if($query){
+			return true;	
+		}else{
+			return false;	
+		}
+	}
+
 	
 
 }

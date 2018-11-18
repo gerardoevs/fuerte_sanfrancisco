@@ -29,7 +29,7 @@
                                     <div class="carousel-caption ">
                                         <div class="titulo-noticia-portada">
                                             <h3 class=""><?=$portada->titulo_noticia;?></h3 >
-                                            <p><a href="<?=base_url()?>main/noticia/<?=$portada->id_noticia?>">ver noticia</a></p>
+                                            <p><a class="portada-link" href="<?=base_url()?>main/noticia/<?=$portada->id_noticia?>">ver noticia</a></p>
                                         </div>
                                     </div>
                                 </div>  

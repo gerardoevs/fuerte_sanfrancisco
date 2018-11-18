@@ -14,11 +14,22 @@ p {
 iframe {
   width: 100%; }
 
-a,
 a:hover,
 a:focus {
-  color: inherit;
+  color: #3385ff;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+a.menu-link:hover, a.menu-link:focus {
+  color: #3385ff;
   text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+a.portada-link:hover, a.portada-link:focus {
+  color: inherit;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s; }

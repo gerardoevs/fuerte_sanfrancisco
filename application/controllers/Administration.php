@@ -427,4 +427,21 @@ class Administration extends CI_Controller {
 		
 	}
 
+	public function eliminarPortada(){
+		if($this->session->userdata('logged_in')){
+			$id = $this->uri->segment('3');
+			if($this->administration_model->eliminarPortada($id)){
+				redirect("/Administration/portadas", "refresh");
+			}else{
+				$data['error'] = "Ocurrio un problema al eliminar la noticia de portada, por favor intenta mas tarde!";
+				$this->load->view('admin/components/head');
+				$this->load->view('admin/noticias/exceptions/general_error',$data);
+				$this->load->view('admin/components/footer');
+			}			
+		}else{
+			redirect("/Administration/login", "refresh");
+		}
+		
+	}
+
 }

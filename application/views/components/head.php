@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/css/w3.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/fonts/open-iconic/font/css/open-iconic-bootstrap.css" >

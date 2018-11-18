@@ -9,7 +9,7 @@
                             <h2 class="card-title"><?= $noticia[0]->titulo_noticia; ?></h2><hr>
                             <img class="card-img-top img-noticia-in" src="<?=base_url('imgUploads/portadas/').$noticia[0]->nombre_imagen?>" alt="Imagen de noticia.">
                             <hr>
-                            <p class="card-text"><?= $noticia[0]->fechaPublicacion; ?></p>
+                            <p class="card-text">NOTICIA | <?= $noticia[0]->fechaPublicacion; ?></p>
                             <div style="color: #000">
                                 <?= $noticia[0]->articulo; ?>
                             </div>

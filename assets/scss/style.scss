@@ -35,13 +35,23 @@ p {
 iframe{
     width:100%;
 }
-a,
+
 a:hover,
 a:focus {
-    color: inherit;
-    text-decoration: none;
+    color: #3385ff;
     transition: all 0.3s;
 }
+
+a.menu-link:hover,a.menu-link:focus{
+    color: #3385ff;
+    text-decoration: none;
+    transition: all 0.3s;
+} 
+
+a.portada-link:hover,a.portada-link:focus{
+    color: inherit;
+    transition: all 0.3s;
+} 
 
 .navbar {
     padding: 15px 10px;
