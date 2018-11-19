@@ -3,7 +3,7 @@
         <div class="col-sm-12">
             <div class="mySlides " style="background-color: #FAFAFA;">
                 
-                <div id="fsSlider" class="carousel slide" data-ride="carousel" style="background-color: rgba(0,0,0,0.5);">
+                <div id="fsSlider" class="carousel slide" data-ride="carousel" >
 
                       <ul class="carousel-indicators">
                         <li data-target="#fsSlider" data-slide-to="0" class="active"></li>
@@ -42,10 +42,10 @@
                       </div>
                       
                       <a class="carousel-control-prev" href="#fsSlider" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
+                        <i class="fas fa-chevron-left"></i>
                       </a>
                       <a class="carousel-control-next" href="#fsSlider" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
+                        <i class="fas fa-chevron-right"></i>
                       </a>
                     </div>
                 

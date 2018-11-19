@@ -5,19 +5,19 @@
 
             <p><center>C.D.Fuerte San Fracisco</center></p>
             <li>
-                <li><a class="menu-link" href="<?=base_url()?>">Noticias</a></li>
+                <li><a class="side-menu-link" href="<?=base_url()?>">Noticias</a></li>
             </li>
             <li>
-                <li><a class="menu-link" href="">Galeria</a></li>
+                <li><a class="side-menu-link" href="">Galeria</a></li>
             </li>
             <li>
-                <li><a class="menu-link" href="">Historia</a></li>
+                <li><a class="side-menu-link" href="">Historia</a></li>
             </li>
             <li>
-                <li><a class="menu-link" href="">Club</a></li>
+                <li><a class="side-menu-link" href="">Club</a></li>
             </li>
             <li>
-                <li><a class="menu-link" href="">Donaciones</a></li>
+                <li><a class="side-menu-link" href="">Donaciones</a></li>
             </li>
         </ul>
     </nav>
