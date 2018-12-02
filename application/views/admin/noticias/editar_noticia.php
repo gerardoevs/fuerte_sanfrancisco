@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content-adm">
 
 	<nav class="navbar navbar-expand-md bg-light navbar-light">
 		<a class="navbar-brand" href="#">Noticias </a>
@@ -73,7 +73,7 @@
 					<div class="col-sm-12 col-lg-12">
 						<label for="articulo">Articulo:</label>
 						<div class="form-group">
-							<textarea id="summernote" name="articulo"><?= $noticia[0]->articulo; ?></textarea>
+							<textarea id="richtext" name="articulo"><?= $noticia[0]->articulo; ?></textarea>
 						</div>
 						<img id='img-upload'/>
 					</div>

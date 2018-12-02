@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content-adm">
 
 	<nav class="navbar navbar-expand-md bg-light navbar-light">
 		<a class="navbar-brand" href="#">Noticias </a>

@@ -8,13 +8,10 @@
                 <li><a class="side-menu-link" href="<?=base_url()?>">Noticias</a></li>
             </li>
             <li>
-                <li><a class="side-menu-link" href="">Galeria</a></li>
+                <li><a class="side-menu-link" href="<?=base_url()?>/Main/galeria">Galeria</a></li>
             </li>
             <li>
-                <li><a class="side-menu-link" href="">Historia</a></li>
-            </li>
-            <li>
-                <li><a class="side-menu-link" href="">Club</a></li>
+                <li><a class="side-menu-link" href="<?=base_url()?>/Main/historia">Historia</a></li>
             </li>
             <li>
                 <li><a class="side-menu-link" href="">Donaciones</a></li>
@@ -36,9 +33,8 @@
 			    </a>
 			   	<ul class="nav-options">
 			   		<li><a class="menu-link" href="<?=base_url()?>">Noticias</a></li>
-			   		<li><a class="menu-link" href="">Galeria</a></li>
-                    <li><a class="menu-link" href="">Historia</a></li>
-                    <li><a class="menu-link" href="">Club</a></li>
+			   		<li><a class="menu-link" href="<?=base_url()?>/Main/galeria">Galeria</a></li>
+                    <li><a class="menu-link" href="<?=base_url()?>/Main/historia">Historia</a></li>
 			   		<li><a class="menu-link" href="">Donaciones</a></li>
 			   	</ul>
             </div>

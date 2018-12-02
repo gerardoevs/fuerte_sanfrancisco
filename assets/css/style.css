@@ -14,8 +14,29 @@ p {
 iframe {
   width: 100%; }
 
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #003295;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px; }
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em; }
+
+blockquote p {
+  display: inline; }
+
+img {
+  width: 100%; }
+
 a.menu-link {
-  color: #003295; }
+  color: #003295;
+  width: 100%; }
 
 a.side-menu-link {
   text-align: center;
@@ -52,11 +73,10 @@ a.portada-link:hover, a.portada-link:focus {
   transition: all 0.3s; }
 
 .navbar {
-  padding: 15px 10px;
+  padding: 5px 10px;
   background: #fff;
   border: none;
   border-radius: 0;
-  margin-bottom: 40px;
   -webkit-box-shadow: 1px 1px 3px #aaa;
   box-shadow: 1px 1px 3px #aaa; }
 
@@ -165,7 +185,16 @@ a.article:hover {
 ----------------------------------------------------- */
 #content {
   width: 100%;
-  margin-top: 80px;
+  margin-top: 45px;
+  padding: 20px;
+  min-height: 100vh;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+#content-adm {
+  width: 100%;
+  margin-top: 55px;
   padding: 20px;
   min-height: 100vh;
   -webkit-transition: all 0.3s;
@@ -240,6 +269,23 @@ a.article:hover {
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s; }
+
+.table-responsive {
+  margin: 1em 0; }
+
+.carousel-item {
+  height: 88vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.articulo-noticia {
+  color: #000; }
+  .articulo-noticia img {
+    width: 100%; }
 
 .card {
   margin-bottom: 1em; }
@@ -320,7 +366,6 @@ a.article:hover {
   margin-bottom: 2em; }
 
 .carousel-control-next, .carousel-control-prev {
-  background-color: #003295;
   color: white;
   width: 50px; }
 
@@ -338,8 +383,7 @@ a.article:hover {
 
 .titulo-noticia-portada {
   margin: auto;
-  width: 600px;
-  border-radius: 50px;
+  width: 85%;
   background-color: rgba(0, 0, 0, 0.5); }
 
 /* ---------------------------------------------------

@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content-adm">
     <div class="row">
         <div class="col-md-8">            
             <div class="row">
@@ -10,10 +10,11 @@
                             <img class="card-img-top img-noticia-in" src="<?=base_url('imgUploads/portadas/').$noticia[0]->nombre_imagen?>" alt="Imagen de noticia.">
                             <hr>
                             <p class="card-text">NOTICIA | <?= $noticia[0]->fechaPublicacion; ?></p>
-                            <div style="color: #000">
+                            <hr>
+                            <div class="articulo-noticia">
                                 <?= $noticia[0]->articulo; ?>
                             </div>
-                            
+                            <hr>
                         </div>
                     </div>
                 </div>

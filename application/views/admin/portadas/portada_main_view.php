@@ -1,4 +1,4 @@
-<div id="content">
+<div id="content-adm">
 
 	<div class="jumbotron">
 		<?php
@@ -81,7 +81,6 @@
 									if(count($portadas) > 0){
 										for($i=0; $i<count($portadas);$i++){
 											if($n->id_noticia == $portadas[$i]->id_noticia){
-												echo $n->id_noticia." | ".$portadas[$i]->id_noticia;
 												$encontrado=true;
 												break;
 											}else{
