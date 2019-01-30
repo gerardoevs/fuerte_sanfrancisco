@@ -13,9 +13,7 @@
 				<li class="nav-item">
 					<a href="<?= base_url('/Administration/nuevaNoticia') ?>" class="nav-link"><span class="oi oi-plus"></span>  Agregar Noticia</a>
 				</li>
-				<li class="nav-item">
-					<a href="<?= base_url('/Administration/editarNoticia') ?>" class="nav-link"><span class="oi oi-pencil"></span>  Modificar Noticia</a>
-				</li>
+
 			</ul>
 		</div>
 	</nav>

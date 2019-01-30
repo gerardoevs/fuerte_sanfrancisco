@@ -6,17 +6,18 @@
 		<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav">
+			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
 					<a href="<?= base_url('/Administration/noticias') ?>" class="nav-link"><span class="oi oi-list"></span>  Listado de Noticias</a>
 				</li>
 				<li class="nav-item">
 					<a href="<?= base_url('/Administration/nuevaNoticia') ?>" class="nav-link"><span class="oi oi-plus"></span>  Agregar Noticia</a>
 				</li>
-				<li class="nav-item">
-					<a href="<?= base_url('/Administration/editarNoticia') ?>" class="nav-link"><span class="oi oi-pencil"></span>  Modificar Noticia</a>
-				</li>
 			</ul>
+			<form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2 " type="text" placeholder="Buscar por Titulo o ID">
+		      <button class="btn btn-light  my-2 my-sm-0" type="button">Buscar</button>
+		    </form>
 		</div>
 	</nav>
 
@@ -62,6 +63,9 @@
 				    </tbody>
 				 </table>
 			</div>
+			<?php if (isset($links)) { ?>
+                <?php echo $links ?>
+            <?php } ?>
 		</div>
 	</div>
 

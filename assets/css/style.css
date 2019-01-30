@@ -60,7 +60,7 @@ a.menu-link:hover, a.menu-link:focus {
   transition: all 0.3s; }
 
 a.menu-link-adm:hover, a.menu-link-adm:focus {
-  color: #6699ff;
+  color: #003295;
   text-decoration: none;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -192,10 +192,17 @@ a.article:hover {
   -o-transition: all 0.3s;
   transition: all 0.3s; }
 
+#content-live {
+  width: 100%;
+  margin-top: 45px;
+  padding: 20px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
 #content-adm {
   width: 100%;
   margin-top: 55px;
-  padding: 20px;
   min-height: 100vh;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -208,6 +215,23 @@ a.article:hover {
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s; }
+
+/* ---------------------------------------------------
+    SEARCH
+----------------------------------------------------- */
+/* ---------------------------------------------------
+    BOOTSTRAP 4 PAGINATION
+----------------------------------------------------- */
+.page-item.active .page-link {
+  background-color: #003295;
+  border-color: #002b80;
+  padding: .5rem .75rem; }
+
+.page-link {
+  padding: 0; }
+  .page-link a {
+    display: block;
+    padding: .5rem .75rem; }
 
 /* ---------------------------------------------------
     MY STYLE
@@ -290,6 +314,9 @@ a.article:hover {
 .card {
   margin-bottom: 1em; }
 
+.card-body-lista {
+  padding: 1em; }
+
 .img-noticia {
   max-width: 100%;
   height: 200px;
@@ -302,6 +329,75 @@ a.article:hover {
   max-height: 600px;
   -o-object-fit: contain;
   object-fit: contain; }
+
+.live-icon {
+  color: red;
+  font-size: 10px;
+  vertical-align: middle;
+  -webkit-animation: flickerAnimation 2s infinite;
+  -moz-animation: flickerAnimation 2s infinite;
+  -o-animation: flickerAnimation 2s infinite;
+  animation: flickerAnimation 2s infinite; }
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-o-keyframes flickerAnimation {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes flickerAnimation {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.livestreaming-div {
+  margin-top: 1em; }
+
+.youtube-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden; }
+  .youtube-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.facebook-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: auto; }
+  .facebook-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute; }
 
 .w3-animate-fading {
   -webkit-animation: fading 10s infinite;
@@ -415,7 +511,9 @@ a.article:hover {
   #sidebar.active {
     margin-left: 0; }
   .nav-menu {
-    display: none; } }
+    display: none; }
+  #content-adm {
+    padding: 20px; } }
 
 @media (min-width: 768px) {
   .card-columns {
@@ -438,7 +536,11 @@ a.article:hover {
     max-width: 100%;
     height: 450px;
     -o-object-fit: cover;
-    object-fit: cover; } }
+    object-fit: cover; }
+  .livestreaming-div {
+    width: 720px;
+    margin: auto;
+    margin-top: 2em; } }
 
 @media (min-width: 992px) {
   .card-columns {

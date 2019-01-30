@@ -6,7 +6,7 @@
             <li><a class="side-menu-link-adm" href="<?= base_url('/Administration')?>"><span class="oi oi-home"></span>  Pagina Principal</a></li>
             <li><a class="side-menu-link-adm" href="<?= base_url('/Administration/noticias')?>"><span class="oi oi-clipboard"></span>  Noticias</a></li>
             <li><a class="side-menu-link-adm" href="<?= base_url('/Administration/portadas')?>"><span class="oi oi-star"></span>  Portada</a></li>
-            <li><a class="side-menu-link-adm" href="#"><span class="oi oi-video"></span>  Directos</a></li>
+            <li><a class="side-menu-link-adm" href="<?= base_url('/Administration/directos')?>"><span class="oi oi-video"></span>  Directos</a></li>
             <li><a class="side-menu-link-adm" href="<?= base_url('/Administration/logout')?>"><span class="oi oi-account-logout"></span>  Cerrar sesión</a></li>
         </ul>
     </nav>
@@ -26,7 +26,7 @@
 			   	<ul class="nav-options">
 			   		<li><a class="menu-link-adm" href="<?= base_url('/Administration/noticias')?>"><span class="oi oi-clipboard"></span>  Noticias</a></li>
                     <li><a class="menu-link-adm" href="<?= base_url('/Administration/portadas')?>"><span class="oi oi-star"></span>  Portada</a></li>
-			   		<li><a class="menu-link-adm" href=""><span class="oi oi-video"></span>  Directos</a></li>
+			   		<li><a class="menu-link-adm" href="<?= base_url('/Administration/directos')?>"><span class="oi oi-video"></span>  Directos</a></li>
                     <li><a class="menu-link-adm" href="<?= base_url('/Administration/logout')?>"><span class="oi oi-account-logout"></span>  Cerrar sesión  </a></li>
 			   	</ul>
             </div>

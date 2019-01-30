@@ -5,7 +5,6 @@
 	<div class="jumbotron">
 	  <h1>Exito!</h1> 
 	  <hr>
-	  <p style="color:#008000;"><?= $error; ?></p> 
-	  <a class="btn btn-light" href="<?= base_url('/Administration/directo')?>"><span class='oi oi-arrow-circle-left'></span> Regresar</a>
+	  <a class="btn btn-light" href="<?= base_url('/Administration/noticias')?>"><span class='oi oi-arrow-circle-left'></span> Regresar</a>
 	</div>
 </div>

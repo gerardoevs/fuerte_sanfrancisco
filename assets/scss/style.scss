@@ -5,20 +5,6 @@
    $color-primario-light: #6699ff;
 
 //---------------NAVBAR-----------------
-// .bg-dark{
-// 	background-color:#eee!important;
-// }
-// .navbar-brand{
-// 	color: #0047b3!important;
-// }
-
-// .navbar-brand{
-// 	display: none;
-// }
-// .navbar-nav{
-// 	display: none;
-// }
-
 
 /*
     DEMO STYLE
@@ -90,7 +76,7 @@ a.menu-link:hover,a.menu-link:focus{
 }
 
 a.menu-link-adm:hover,a.menu-link-adm:focus{
-    color: $color-primario-light;
+    color: $color-primario;
     text-decoration: none;
     transition: all 0.3s;
 } 
@@ -230,10 +216,17 @@ a.article:hover {
     transition: all 0.3s;
 }
 
+#content-live {
+    width: 100%;
+    margin-top:45px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
 #content-adm {
     width: 100%;
     margin-top:55px;
-    padding: 20px;
+    
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -245,6 +238,31 @@ a.article:hover {
     transition: all 0.3s;
 }
 
+
+/* ---------------------------------------------------
+    SEARCH
+----------------------------------------------------- */
+.searchInput{
+
+}
+
+/* ---------------------------------------------------
+    BOOTSTRAP 4 PAGINATION
+----------------------------------------------------- */
+
+.page-item.active .page-link{
+    background-color:$color-primario;
+    border-color:$color-primario-dark;
+    padding: .5rem .75rem;
+}
+
+.page-link{
+    padding: 0;
+    & a{
+        display: block;
+        padding: .5rem .75rem;
+    }
+}
 
 /* ---------------------------------------------------
     MY STYLE
@@ -348,6 +366,19 @@ a.article:hover {
 	margin-bottom:1em;
 }
 
+.card-body-lista{
+    padding: 1em;
+    & .img-noticia-lista{
+        
+    }
+
+    & .content-noticia-lista{
+       
+    }
+}
+
+
+
 .img-noticia{
    max-width: 100%; height: 200px; object-fit:scale-down;
 }
@@ -355,6 +386,74 @@ a.article:hover {
 .img-noticia-in{
    max-width: 100%; height: auto; max-height: 600px; object-fit:contain;
 }
+
+
+.live-icon{
+    color:red;
+    font-size: 10px;
+    vertical-align: middle;
+
+    -webkit-animation: flickerAnimation 2s infinite;
+   -moz-animation: flickerAnimation 2s infinite;
+   -o-animation: flickerAnimation 2s infinite;
+    animation: flickerAnimation 2s infinite;
+
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+
+.livestreaming-div{
+    margin-top:1em;
+}
+
+.youtube-responsive{
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+    & iframe{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+}
+
+.facebook-responsive {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:auto;
+
+    & iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    }
+}
+
 
 .w3-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}10%{opacity:1}90%{opacity:1}100%{opacity:0}}
 
@@ -482,7 +581,10 @@ a.article:hover {
     	display:none;
     }
 
-
+    #content-adm{
+        padding:20px;
+    }
+    
 }
 
 // Medium devices (tablets, 768px and up)
@@ -505,9 +607,19 @@ a.article:hover {
     	flex-direction: row;
     }
 
+
+
     .cover-img{
 		max-width: 100%; height: 450px; object-fit:cover;
 	}
+
+    .livestreaming-div{
+        width: 720px;
+        margin: auto;
+        margin-top:2em;
+    }
+
+
 }
 
 // Large devices (desktops, 992px and up)
@@ -520,6 +632,8 @@ a.article:hover {
     .contenedor-footer{
         padding:0;
     }
+
+    
  }
 
 // Extra large devices (large desktops, 1200px and up)

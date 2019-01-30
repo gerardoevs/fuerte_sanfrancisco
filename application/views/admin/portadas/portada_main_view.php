@@ -109,6 +109,9 @@
 				    </tbody>
 				 </table>
 			</div>
+			<?php if (isset($links)) { ?>
+                <?php echo $links ?>
+            <?php } ?>
 		</div>
 	</div>
 

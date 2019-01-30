@@ -4,18 +4,18 @@
         <ul class="list-unstyled components">
 
             <p><center>C.D.Fuerte San Fracisco</center></p>
-            <li>
-                <li><a class="side-menu-link" href="<?=base_url()?>">Noticias</a></li>
-            </li>
-            <li>
-                <li><a class="side-menu-link" href="<?=base_url()?>/Main/galeria">Galeria</a></li>
-            </li>
-            <li>
-                <li><a class="side-menu-link" href="<?=base_url()?>/Main/historia">Historia</a></li>
-            </li>
-            <li>
-                <li><a class="side-menu-link" href="">Donaciones</a></li>
-            </li>
+            <li><a class="side-menu-link" href="<?=base_url()?>">Noticias</a></li>
+            <li><a class="side-menu-link" href="<?=base_url()?>Main/galeria">Galeria</a></li>
+            <li><a class="side-menu-link" href="<?=base_url()?>Main/historia">Historia</a></li>
+            <li><a class="side-menu-link" href="">Donaciones</a></li>
+            <?php 
+                if($this->Main_model->checkLive()){
+                    ?>
+                    <li><a class="side-menu-link" href="<?=base_url()?>Main/directo"><i class="fas fa-circle live-icon" ></i> Directo</a></li> 
+                    <?php
+                }
+            ?>
+            
         </ul>
     </nav>
 
@@ -33,9 +33,17 @@
 			    </a>
 			   	<ul class="nav-options">
 			   		<li><a class="menu-link" href="<?=base_url()?>">Noticias</a></li>
-			   		<li><a class="menu-link" href="<?=base_url()?>/Main/galeria">Galeria</a></li>
-                    <li><a class="menu-link" href="<?=base_url()?>/Main/historia">Historia</a></li>
+			   		<li><a class="menu-link" href="<?=base_url()?>Main/galeria">Galeria</a></li>
+                    <li><a class="menu-link" href="<?=base_url()?>Main/historia">Historia</a></li>
 			   		<li><a class="menu-link" href="">Donaciones</a></li>
+                    <?php 
+                        if($this->Main_model->checkLive()){
+                            ?>
+                            <li><a class="menu-link" href="<?=base_url()?>Main/directo"><i class="fas fa-circle live-icon" ></i> Directo</a></li> 
+                            <?php
+                        }
+                    ?>
+                    
 			   	</ul>
             </div>
         </nav>

@@ -1,3 +1,4 @@
+
 <div id="content">
     <div class="row">
         <div class="col-sm-12">
@@ -70,6 +71,45 @@
                     <h2>Noticias</h2><hr>
                     <div class="card-columns">
                         <?php
+
+                        foreach ($noticiapar as $npar) {
+                        ?>
+                        <div class="card">
+                            <div class="card-body">
+                                <?php echo $npar->id_noticia;?>
+                                <h4 class="card-title"><a href="<?=base_url()?>main/noticia/<?=$npar->id_noticia?>"><?php echo $npar->titulo_noticia?></a></h4>
+                                <?php
+                                if($npar->nombre_imagen == "" ||  is_null($npar->nombre_imagen)){
+                                ?>
+                                <img class="card-img-top img-noticia" src="<?=base_url()?>assets/img/default-img.svg" alt="Imagen de noticia"><hr>
+                                <?php
+                                }else{
+                                ?>
+                                <img class="card-img-top img-noticia" src="<?=base_url('imgUploads/portadas/').$npar->nombre_imagen?>" alt="Imagen de noticia"><hr>
+                                <?php
+                                }
+                                ?>
+                                <p class="card-text"><?php echo $npar->descripcion_corta?></p>
+                                <a href="<?=base_url()?>main/noticia/<?=$npar->id_noticia?>" class="btn">Ver noticia</a>
+                                <?php $sharedLink=urlencode(base_url()."main/noticia/".$npar->id_noticia);?>
+                                <a class="btn float-right" href="http://facebook.com/sharer.php?u=<?= $sharedLink ?>" data-toggle="tooltip" title="Compartir"> <i class="fab fa-facebook-square" style="font-size: 30px;"></i></a>
+                                <a class="btn float-right" href="http://twitter.com/home?status=<?= $sharedLink ?>" data-toggle="tooltip" title="Compartir"> <i class="fab fa-twitter-square" style="font-size: 30px;"></i></a>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <?php
+                        }
+                        ?>
+                        <div class="card" >
+                            <div class="card-body" >
+                                <h4 class="card-title">Anuncio</h4>
+                                <img class="card-img-top img-noticia" src="<?=base_url()?>assets/img/default-img.svg" alt="Imagen de noticia"><hr>
+                                <p class="card-text">Este es un anuncio</p>
+                            </div>
+                        </div>
+                        <?php
                         
                         foreach ($noticiainpar as $ninpar) {
                         ?>
@@ -89,53 +129,21 @@
                                 }
                                 ?>
                                 <p class="card-text"><?php echo $ninpar->descripcion_corta?></p>
-                                <a href="<?=base_url()?>main/noticia/<?=$ninpar->id_noticia?>" class="card-link">Ver noticia</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <a  class="btn" href="<?=base_url()?>main/noticia/<?=$ninpar->id_noticia?>" class="btn">Ver noticia</a>
+                                <?php $sharedLink=urlencode(base_url()."main/noticia/".$ninpar->id_noticia);?>
+                                <a class="btn float-right" href="http://facebook.com/sharer.php?u=<?= $sharedLink ?>" data-toggle="tooltip" title="Compartir"> <i class="fab fa-facebook-square" style="font-size: 30px;"></i></a>
+                                <a class="btn float-right" href="http://twitter.com/home?status=<?= $sharedLink ?>" data-toggle="tooltip" title="Compartir"> <i class="fab fa-twitter-square" style="font-size: 30px;"></i></a>
                             </div>
                         </div>
-                        
-                        <?php
-                        }
-                        ?>
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="">Anuncio</a></h4>
-                                <img class="card-img-top img-noticia" src="<?=base_url()?>assets/img/default-img.svg" alt="Imagen de noticia"><hr>
-                                <p class="card-text">Este es un anuncio</p>
-                            </div>
-                        </div>
-                        <?php
-                        
-                        
-                        foreach ($noticiapar as $npar) {
-                        ?>
-                        <div class="card">
-                            <div class="card-body">
-                                <?php echo $npar->id_noticia;?>
-                                <h4 class="card-title"><a href="<?=base_url()?>main/noticia/<?=$npar->id_noticia?>"><?php echo $npar->titulo_noticia?></a></h4>
-                                <?php
-                                if($npar->nombre_imagen == "" ||  is_null($npar->nombre_imagen)){
-                                ?>
-                                <img class="card-img-top img-noticia" src="<?=base_url()?>assets/img/default-img.svg" alt="Imagen de noticia"><hr>
-                                <?php
-                                }else{
-                                ?>
-                                <img class="card-img-top img-noticia" src="<?=base_url('imgUploads/portadas/').$npar->nombre_imagen?>" alt="Imagen de noticia"><hr>
-                                <?php
-                                }
-                                ?>
-                                <p class="card-text"><?php echo $npar->descripcion_corta?></p>
-                                <a href="<?=base_url()?>main/noticia/<?=$npar->id_noticia?>" class="card-link">Ver noticia</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
-                        </div>
-                        
-                        <?php
+
+                        <?php //
                         
                         }
                         
                         ?>
                     </div>
+                    <hr>
+                    <center><a href="<?= base_url('main/noticias')?>"><h3>Ver todas las noticias</h3></a></center>
                 </div>
             </div>
             

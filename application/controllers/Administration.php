@@ -82,9 +82,26 @@ class Administration extends CI_Controller {
 		echo($this->encryption->decrypt("YOUR_KEY"));
 	}
 
+	//NOTICIAS CON PAGINACION
 	public function noticias(){
-		if($this->session->userdata('logged_in')){			
-			$data['noticias'] = $this->administration_model->select_all_news();
+		
+		$this->load->library('pagination');
+        $limit_per_page = 5;
+        $start_index = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $total_records = $this->administration_model->get_total_news();
+
+		if($this->session->userdata('logged_in')){
+
+			$data["noticias"] = $this->administration_model->get_current_page_records_news($limit_per_page, $start_index);
+
+			$config['base_url'] = base_url('Administration/noticias');
+			$config['total_rows'] = $total_records;
+			$config['per_page'] = $limit_per_page;
+
+			$this->pagination->initialize($config);
+
+			$data['links']=$this->pagination->create_links();
+			
 			$this->load->view('admin/components/head');
 			$this->load->view('admin/components/nav');
 			$this->load->view('admin/noticias/tabla_noticias', $data);
@@ -390,9 +407,26 @@ class Administration extends CI_Controller {
 	}
 
 	public function portadas(){
+
+		$this->load->library('pagination');
+
+        $limit_per_page = 5;
+        $start_index = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $total_records = $this->administration_model->get_total_news();
+
 		if($this->session->userdata('logged_in')){
+
+			$data["noticias"] = $this->administration_model->get_current_page_records_portadas($limit_per_page, $start_index);
+
+			$config['base_url'] = base_url('Administration/portadas');
+			$config['total_rows'] = $total_records;
+			$config['per_page'] = $limit_per_page;
+
+			$this->pagination->initialize($config);
+
+			$data['links']=$this->pagination->create_links();
+
 			$data['portadas'] = $this->administration_model->select_portadas();
-			$data['noticias'] = $this->administration_model->select_all_news();
 			$this->load->view('admin/components/head');
 			$this->load->view('admin/components/nav');
 			$this->load->view('admin/portadas/portada_main_view',$data);
@@ -441,7 +475,91 @@ class Administration extends CI_Controller {
 		}else{
 			redirect("/Administration/login", "refresh");
 		}
-		
 	}
+
+	public function directos(){
+		if($this->session->userdata('logged_in')){
+			$data['listaDirecto'] = $this->administration_model->select_directo();
+			$this->load->view('admin/components/head');
+			$this->load->view('admin/components/nav');
+			$this->load->view('admin/directos/directos_main_view',$data);
+			$this->load->view('admin/components/footer');	
+		}else{
+			redirect("/Administration/login", "refresh");
+		}
+	}
+
+	public function nuevoDirecto(){
+		if($this->session->userdata('logged_in')){
+			$this->load->view('admin/components/head');
+			$this->load->view('admin/components/nav');
+			$this->load->view('admin/directos/directos_agregar');
+			$this->load->view('admin/components/footer');	
+		}else{
+			redirect("/Administration/login", "refresh");
+		}
+	}
+
+	public function publicarDirecto(){
+		if($this->session->userdata('logged_in')){
+			$this->form_validation->set_rules('titulo', 'Titulo de directo', 'required');
+			$this->form_validation->set_rules('host', 'Descripcion de noticia', 'required');
+			$this->form_validation->set_rules('embedlink', 'Link de directo', 'required');
+        	if ($this->form_validation->run() == FALSE)
+        	{
+        		$this->load->view('admin/components/head');
+				$this->load->view('admin/noticias/exceptions/form_validation_error');
+				$this->load->view('admin/components/footer');
+        	}else{
+        		$directo = $this->administration_model->select_directo();
+        		$titulo=$this->input->post('titulo');
+				$host=$this->input->post('host');
+				$embedlink=$this->input->post('embedlink');
+        		if( count($directo) >0){
+        			if($this->administration_model->actualizarDirecto($titulo, $host,$embedlink)){
+        				$this->load->view('admin/components/head');
+						$this->load->view('admin/components/nav');
+						$this->load->view('admin/directos/directo_agregado_exitosamente');
+						$this->load->view('admin/components/footer');
+        			}else{
+        				$this->load->view('admin/components/head');
+						$this->load->view('admin/components/nav');
+						$this->load->view('admin/directos/general_error');
+						$this->load->view('admin/components/footer');
+        			}
+        		}else{
+        			if($this->administration_model->agregarDirecto($titulo, $host,$embedlink)){
+        				$this->load->view('admin/components/head');
+						$this->load->view('admin/components/nav');
+						$this->load->view('admin/directos/directo_agregado_exitosamente');
+						$this->load->view('admin/components/footer');
+        			}else{
+        				$this->load->view('admin/components/head');
+						$this->load->view('admin/components/nav');
+						$this->load->view('admin/directos/general_error');
+						$this->load->view('admin/components/footer');
+        			}
+        		}
+        	}	
+		}else{
+			redirect("/Administration/login", "refresh");
+		}
+	}
+
+	public function cancelarDirecto(){
+		if($this->session->userdata('logged_in')){
+			if($this->administration_model->actualizarDirecto(null,null,null)){
+				redirect("/Administration/directos", "refresh");
+			}else{
+				$this->load->view('admin/components/head');
+				$this->load->view('admin/components/nav');
+				$this->load->view('admin/directos/general_error');
+				$this->load->view('admin/components/footer');
+			}	
+		}else{
+			redirect("/Administration/login", "refresh");
+		}
+	}
+
 
 }

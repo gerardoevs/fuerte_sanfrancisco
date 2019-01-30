@@ -65,6 +65,29 @@ class Main extends CI_Controller {
 		
 	}
 
+	public function noticias(){
+
+		$this->load->library('pagination');
+        $limit_per_page = 15;
+        $start_index = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $total_records = $this->Main_model->get_total_news();
+
+        $data["noticias"] = $this->Main_model->get_current_page_records_news($limit_per_page, $start_index);
+
+		$config['base_url'] = base_url('main/noticias');
+		$config['total_rows'] = $total_records;
+		$config['per_page'] = $limit_per_page;
+
+		$this->pagination->initialize($config);
+
+		$data['links']=$this->pagination->create_links();
+
+		$this->load->view('components/head-clean');
+		$this->load->view('components/nav');
+		$this->load->view('noticias_todas_view', $data);
+		$this->load->view('components/footer');
+	}
+
 	public function galeria(){
 
 		$this->load->view('components/head-clean');
@@ -80,6 +103,21 @@ class Main extends CI_Controller {
 		$this->load->view('components/nav');
 		$this->load->view('historia_view');
 		$this->load->view('components/footer');
+		
+	}
+
+	public function directo(){
+		if($this->Main_model->checkLive()){
+			$data['listaDirecto'] = $this->Main_model->select_directo();
+			$this->load->view('components/head-clean');
+			$this->load->view('components/nav');
+			$this->load->view('directo_view',$data);
+			$this->load->view('components/footer');
+		}else{
+			redirect("/", "refresh");
+			
+		}
+		
 		
 	}
 
